@@ -83,7 +83,8 @@ body {
 }
 
 .container {
-    width: 50%;
+    max-width: 50%;
+    max-width: 300px;
 }
 
 .rating-state__img {
@@ -94,6 +95,8 @@ body {
 
 .rating-state__title {
     color: var(--white);
+    margin: 15px 0px;
+    font-size: 2rem;
 }
 
 .rating-state__body {
@@ -109,13 +112,13 @@ body {
 .score {
     display: flex;
     justify-content: center;
+    gap: 15px;
 }
 
 .score__number {
     background-color: hsl(215deg 20% 23%);
     border-radius: 50%;
     color: var(--light-grey);
-    margin: 14px;
     width: 105px;
     height: 37px;
     display: inline-block;
@@ -131,4 +134,13 @@ body {
     width: 100%;
     padding: 8px;
     border-radius: 30px;
+    margin-top: 10px;
+    border: none;
+    font-size: 1.3rem;
+}
+
+@media screen and (max-width: 400px) {
+    .container {
+        max-width: 80%;
+    }
 }
