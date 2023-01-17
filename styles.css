@@ -42,12 +42,6 @@ picture {
     display: block;
 }
 
-input,
-button,
-textarea,
-select {
-    font: inherit;
-}
 
 @media (prefers-reduced-motion: reduce) {
     html:focus-within {
@@ -83,8 +77,9 @@ body {
 }
 
 .container {
-    max-width: 50%;
-    max-width: 300px;
+    max-width: 330px;
+    border-radius: 25px;
+    overflow: hidden;
 }
 
 .rating-state__img {
@@ -106,41 +101,119 @@ body {
 
 .rating-state {
     background-color: var(--dark-blue);
-    padding: 19px;
+    padding: 22px;
 }
 
-.score {
+.rating-component {
     display: flex;
+    gap: 5px;
+    margin: 20px 0px;
+    flex-wrap: wrap;
+    width: 100%;
     justify-content: center;
-    gap: 15px;
-}
-
-.score__number {
-    background-color: hsl(215deg 20% 23%);
-    border-radius: 50%;
-    color: var(--light-grey);
-    width: 105px;
-    height: 37px;
-    display: inline-block;
-    line-height: 40px;
-    text-align: center;
-    font-size: 1.3rem;
 }
 
 .rating-state__submit {
     background-color: var(--orange);
     color: var(--white);
-    display: block;
     width: 100%;
-    padding: 8px;
+    padding: 15px;
     border-radius: 30px;
-    margin-top: 10px;
     border: none;
     font-size: 1.3rem;
+    letter-spacing: 0.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
 }
 
-@media screen and (max-width: 400px) {
-    .container {
-        max-width: 80%;
+
+.rating-button::before {
+    content: attr(data-number);
+    text-align: center;
+}
+
+.rating-button {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: hsl(215deg 20% 23%);
+    border-radius: 50%;
+    color: var(--light-grey);
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+}
+
+@keyframes changeColorActiveRating {
+    from {
+        background-color: var(--light-grey);
     }
+
+    to {
+        background-color: var(--orange);
+    }
+}
+
+@keyframes changeColorHoverButton {
+    from {
+        background-color: var(--orange);
+    }
+
+    to {
+        background-color: var(--white);
+    }
+}
+
+@keyframes grow {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes clickAnimation {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
+
+.hide {
+    display: none;
+}
+
+.rating-button.active {
+    animation: changeColorActiveRating 0.5s ease-in-out, grow 0.5s ease-in-out;
+    ;
+    animation-fill-mode: forwards;
+}
+
+.rating-button:not(.active):hover {
+    background-color: var(--light-grey);
+}
+
+.rating-button.active,
+.rating-button:hover {
+    color: var(--white);
+}
+
+.rating-state__submit:active {
+    animation: clickAnimation 0.2s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.rating-state__submit:hover {
+    animation: changeColorHoverButton 0.2s ease-in;
+    background-color: var(--white);
+    color: var(--orange);
 }
