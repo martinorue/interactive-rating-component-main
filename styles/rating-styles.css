@@ -85,51 +85,38 @@ body {
 
 .card--dark {
     background-color: var(--dark-blue);
-    padding: 20px;
+    padding: 20px 10px;
 }
 
 .rating-state__img {
     border-radius: 100%;
     padding: 10px;
     background-color: hsl(215deg 20% 23%);
+    margin-left: 14px;
+}
+
+.rating-state__body {
+    padding: 0px 15px;
 }
 
 .rating-state__title {
     color: var(--white);
     margin: 15px 0px;
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
-.rating-state__body {
-    font-size: 1.5rem;
+.rating-state__p {
+    font-size: 1.45rem;
     color: var(--light-grey);
 }
 
 .rating-component {
     display: flex;
-    gap: 5px;
+    gap: 6px;
     margin: 20px 0px;
-    flex-wrap: wrap;
     width: 100%;
     justify-content: center;
 }
-
-.rating-state__submit {
-    background-color: var(--orange);
-    color: var(--white);
-    width: 100%;
-    padding: 15px;
-    border-radius: 30px;
-    border: none;
-    font-size: 1.3rem;
-    letter-spacing: 0.1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 12px 0px;
-    text-transform: uppercase;
-}
-
 
 .rating-button::before {
     content: attr(data-number);
@@ -148,7 +135,26 @@ body {
     justify-content: center;
     width: 20px;
     height: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
+.rating-state__submit {
+    background-color: var(--orange);
+    color: var(--white);
+    width: 100%;
+    padding: 15px;
+    border-radius: 30px;
+    border: none;
+    font-size: 1.3rem;
+    letter-spacing: 0.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 12px 0px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
 
 @keyframes changeColorActiveRating {
     from {
@@ -196,7 +202,6 @@ body {
 
 .rating-button.active {
     animation: changeColorActiveRating 0.3s ease-in-out, grow 0.3s ease-in-out;
-    ;
     animation-fill-mode: forwards;
 }
 
@@ -214,6 +219,11 @@ body {
     animation-fill-mode: forwards;
 }
 
+.rating-state__submit:disabled{
+    opacity: 0.4;
+    pointer-events: none;
+}
+
 .rating-state__submit:hover {
     animation: changeColorHoverButton 0.2s ease-in;
     background-color: var(--white);
@@ -221,5 +231,5 @@ body {
 }
 
 .rating-state__form {
-    padding: 0px 7px;
+    padding: 0px 18px;
 }
