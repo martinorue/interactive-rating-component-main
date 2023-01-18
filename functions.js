@@ -15,10 +15,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function handleSubmitClick(event) {
         event.preventDefault();
-        console.log('holiii');
         const ratingState = document.querySelector('.rating-state');
         ratingState.classList.add('hide');
-        const thankState = document.querySelector('.thank-state');
+        const thankState = document.querySelector('.hideable');
         thankState.classList.remove('hide');
     }
 
